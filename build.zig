@@ -6,7 +6,7 @@ pub fn build(b: *std.build.Builder) void {
     const optimize = b.standardOptimizeOption(.{});
 
     const lib = zlib.create(b, target, optimize);
-    _ = b.addInstallArtifact(lib.step);
+    b.installArtifact(lib.step);
 
     const tests = b.addTest(.{
         .root_source_file = .{ .path = "src/main.zig" },
